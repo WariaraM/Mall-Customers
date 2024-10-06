@@ -4,7 +4,7 @@ import plotly.express as px
 import streamlit as st
 
 # Load the data
-df = pd.read_csv('Mall_Customers.csv')
+data = pd.read_csv('Mall_Customers.csv')
 
 # Sidebar for input parameters
 st.sidebar.header('KMeans Clustering Parameters')
@@ -15,7 +15,7 @@ X = df[['Annual Income (k$)', 'Spending Score (1-100)']]
 
 # Apply KMeans clustering
 kmeans = KMeans(n_clusters=n_clusters)
-df['Cluster'] = kmeans.fit_predict(X)
+data['Cluster'] = kmeans.fit_predict(X)
 
 # Plot the clusters
 fig = px.scatter(df, 
