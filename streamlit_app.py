@@ -11,14 +11,14 @@ st.sidebar.header('KMeans Clustering Parameters')
 n_clusters = st.sidebar.slider('Number of Clusters', 2, 10, 5)
 
 # Select features to cluster
-X = df[['Annual Income (k$)', 'Spending Score (1-100)']]
+X = data[['Annual Income (k$)', 'Spending Score (1-100)']]
 
 # Apply KMeans clustering
 kmeans = KMeans(n_clusters=n_clusters)
 data['Cluster'] = kmeans.fit_predict(X)
 
 # Plot the clusters
-fig = px.scatter(df, 
+fig = px.scatter(data, 
                  x='Annual Income (k$)', 
                  y='Spending Score (1-100)', 
                  color='Cluster', 
